@@ -10,7 +10,7 @@ class ContactMailer < ApplicationMailer
 
     if @agent.present?
       mail to: @agent.email,
-           message: 'You have a new contact from Property Finder'
+           message: 'You have a new contact from Maskan'
     end
   end
 end

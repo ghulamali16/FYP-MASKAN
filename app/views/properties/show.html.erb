@@ -12,9 +12,9 @@
           <p class="mb-2"><%= @property.address %></p>
           <p class="h2 mb-3">
             <% if @property.for_sale? %>
-            <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Offers accepted" %>
+            <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0, :unit => "PKR ",) : "Offers accepted" %>
             <% else %>
-            <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "Open for enquiries" %> / month
+            <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0 , :unit => "PKR ",) : "Open for enquiries" %> / month
             <% end %>
           </p>
         </div>
@@ -38,7 +38,7 @@
       <div class="row border-top border-bottom mt-5 mb-4 pt-4 pb-4">
         <div class="col-6">
           <% if @property.for_sale? %>
-          <b class="text-success">Est. Monthly Reapayments of <%= number_to_currency(((@property.price) / 360) * 0.90, precision: 0) %>*</b>
+          <b class="text-success">Est. Monthly Reapayments of <%= number_to_currency(((@property.price) / 360) * 0.90, precision: 0, :unit => "PKR ",) %>*</b>
           <% else %>
           <b class="text-success">Available from <%= @property.available_date.strftime("%a,") %> <%= @property.available_date.day.ordinalize %> <%= @property.available_date.strftime("%B") %> </b>
           <%end%>

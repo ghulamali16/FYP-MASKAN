@@ -27,7 +27,7 @@ $ localhost:3000/
 
 ## Future features
 - Improve styling for some sections of the app
-- Add more features
+- Add more features like consultancy and Incremental Payments
 
 ## Built with
 - Ruby on Rails
