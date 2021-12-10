@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
   def index; end
 
   def profile
-    @account = Account.find(params[:id])
+    @account = Account.find(current_account.id)
     @properties = Property.where(account_id: @account.id)
 
     @properties_sold = Property.where(account_id: @account.id).sold.count

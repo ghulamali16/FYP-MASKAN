@@ -58,14 +58,14 @@
 
 <div class="form-group">
   <%= f.label :image %>
-  <%= f.file_field :image, class:"form-control" %>
-  <%= f.hidden_field :image_cache %>
+  <%= f.file_field :image,  placeholder: 'Upload picture',
+        direct_upload: true, class:"form-control" %>
 </div>
 
 <div class="form-group">
   <%= f.label :cover_image %>
-  <%= f.file_field :cover_image, class:"form-control" %>
-  <%= f.hidden_field :cover_image_cache %>
+  <%= f.file_field :cover_image,  placeholder: 'Upload picture',
+        direct_upload: true, class:"form-control" %>
 </div>
 
 <div class="form-group">

@@ -20,13 +20,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'carrierwave', '1.3.2'
+
 gem 'devise'
-gem 'fog', '~> 1.37.0'
 gem 'rubocop-rails'
-
 gem 'mini_magick'
-
+gem 'image_processing'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

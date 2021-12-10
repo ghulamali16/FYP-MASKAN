@@ -8,7 +8,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.all
+    @properties = Property.where(account_id: current_account)
   end
 
   # GET /properties/1
@@ -111,7 +111,7 @@ class PropertiesController < ApplicationController
   def property_params
     params.require(:property).permit(:name, :details, :address, :parking_spaces,
                                      :price, :room, :bathroom, :photo,
-                                     :photo_cache, :for_sale, :available_date,
+                                     :for_sale, :available_date,
                                      :status)
   end
 end

@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :accounts
+  resources :projects
+  devise_for :accounts, controllers: {
+    registrations: 'registrations'
+  }
   resources :posts
   resources :properties
 

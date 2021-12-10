@@ -7,11 +7,11 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable
 
-  mount_uploader :image, ProfilePictureUploader
-  mount_uploader :cover_image, ProfilePictureUploader
-
   has_many :properties
-
+  has_many :projects , dependent: :destroy
+  has_one_attached :image, :dependent => :destroy
+  has_one_attached :cover_image, :dependent => :destroy
+  enum roles: [:agent, :builder, :designer]
   def full_name
     "#{first_name} #{last_name}"
   end
