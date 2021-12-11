@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
   resources :posts
   resources :properties
-
+  resources :projects
   get '/blog' => 'posts#latest', as: :blog
 
   # admin routes

@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
   before_action :set_sidebar, except: %i[show]
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    @properties = Property.where(account_id: current_account)
+
   end
 
   # GET /projects/1 or /projects/1.json

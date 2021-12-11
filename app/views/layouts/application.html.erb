@@ -6,6 +6,8 @@
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <script src="https://kit.fontawesome.com/0e6e3d69f0.js" crossorigin="anonymous"></script>
 
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_pack_tag 'application' %>
@@ -15,12 +17,15 @@
   <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_url 'favicon/favicon-16x16.png' %>">
   <link rel="manifest" href="<%= asset_url 'favicon/site.webmanifest' %>">
 
+  <link rel='stylesheet' href='<%= asset_url 'footer.css' %>'>
+
 </head>
 
 <body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "show-sidebar" if @show_sidebar.present? %>">
   <% if @show_sidebar.nil? %>
   <header>
     <%= render "layouts/nav/public" %>
+    <aside>Ads</aside>
   </header>
   <%= yield %>
   <% else %>
@@ -35,8 +40,8 @@
   </div>
   <% end %>
 
-
-  <%#= render "layouts/nav/footer" %>
+  <br style="line-height:20%">
+  <%= render "layouts/footer" %>
 
   <div id="notifications"><%= flash_notifications %></div>
 
