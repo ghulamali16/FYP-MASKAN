@@ -17,8 +17,8 @@
   <p class="lead"><b>Project City:  </b><%=@project.city%></p>
   <hr class="my-4">
   <p><b>Project Budget:  </b><%=@project.budget%></p>
-    <p><b>Project Client:  </b><%=@project.client%></p>
-
+  <p><b>Project Client:  </b><%=@project.client%></p>
+   <p><b>Project Details:  </b><%=@project.details%></p>
   <p class="btn btn-sm btn-warning"> <%= link_to 'Edit', edit_project_path(@project), class:"btn btn-sm primary" %> </p>
   <p class="btn btn-sm btn-info">
     <%= link_to 'Back', projects_path, class:"btn btn-sm info" %></p>

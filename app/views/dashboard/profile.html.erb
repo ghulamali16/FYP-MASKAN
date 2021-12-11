@@ -10,8 +10,7 @@
 </div>
 
 <div style="line-height:20em">
-  <br>
-  <br>
+<br>
 </div>>
 
 <div class="container">
@@ -64,11 +63,18 @@
   <section class="mt-5 mb-5">
     <div class="container" bis_skin_checked="1">
       <div class="row" bis_skin_checked="1">
-        <div class="col-12">
-          <p class="h3 mb-3">Current listings by this User</p>
-        </div>
-        <%= render "properties/list", properties: @properties %>
-      </div>
+        <%if @account.properties.count != 0%>
+          <div class="col-12">
+            <p class="h3 mb-3">Current listings by <%=@account.full_name%></p>
+          </div>
+          <%= render "properties/list", properties: @properties %>
+        <%else%>
+          <div class="col-12">
+            <p class="h3 mb-3">Current Projects by <%=@account.full_name%></p>
+          </div>
+          <%= render "projects/list", projects: @account.projects %>
+        <%end%>
+       </div>
     </div>
   </section>
 </div>

@@ -1,0 +1,30 @@
+<% projects.each do |project| %>
+<div class="col-4">
+  <div class="property border">
+
+    <div class="property-thumb" style="background-image:url('<%= url_for(project.photo) %>')">
+      <%= link_to "", project_path(project) %>
+    </div>
+
+    <div class="property-summary p-3">
+      <h3 class="h5"><%= link_to project.title,project_path(project), class: "text-dark" %></h3>
+
+      <span class="mr-2">
+       <i class="fas fa-user text-muted ml-1"></i>
+        <%= project.client %>
+
+      </span>
+      <span class="mr-2">
+       <i class="fas fa-building text-muted ml-1"></i>
+        <%= project.city %>
+      </span>
+      <span>
+        <i class="fas fa-money-bill text-muted ml-1"></i>
+        <%= project.budget %>
+      </span>
+
+      <p class="mt-2"><%= project.statuses %></p>
+    </div>
+  </div>
+</div>
+<% end %>

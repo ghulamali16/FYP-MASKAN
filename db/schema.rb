@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_10_235403) do
+ActiveRecord::Schema.define(version: 2021_12_11_195141) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2021_12_10_235403) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "account_id", null: false
+    t.string "details", default: "Project Details"
     t.index ["account_id"], name: "index_projects_on_account_id"
   end
 
