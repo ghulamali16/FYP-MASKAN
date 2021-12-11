@@ -11,32 +11,50 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-row">
+    <div class="col-lg-3">
+      <%= form.label :title %>
+      <%= form.text_field :title , class:'form-control'%>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+
+  <div class="form-row">
+    <div class="col-lg-3">
+      <%= form.label :city %>
+      <%= form.text_field :city, class:"form-control" %>
+    </div>
+ </div>
+
+  <div class="form-row">
+    <div class="col-lg-3">
+      <%= form.label :budget %>
+      <%= form.number_field :budget, class:'form-control' %>
+    </div>
+ </div>
+
+  <div class="form-row">
+    <div class="col-lg-3">
+      <%= form.label :statuses %>
+    <%= form.select :statuses, options_for_select(Project.statuses.keys.to_a), {prompt: "Select Status"}, class: "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :budget %>
-    <%= form.number_field :budget %>
+  <div class="form-row ">
+    <div class="col-lg-3">
+      <%= form.label :client %>
+      <%= form.text_field :client, class:'form-control' %>
+    </div>
   </div>
+  <div class="form-row ">
+    <div class="col-lg-3">
+      <%= form.label :photo %>
+      <%= form.file_field :photo, class: "form-control w-10" %>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.number_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :client %>
-    <%= form.text_field :client %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    </div>
+</div>
+<br>
+<div class="form-row">
+  <%= form.submit "Save Project", class: "btn btn-success" %>
+</div>
 <% end %>

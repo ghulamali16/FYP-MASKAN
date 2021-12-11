@@ -12,6 +12,12 @@ class Account < ApplicationRecord
   has_one_attached :image, :dependent => :destroy
   has_one_attached :cover_image, :dependent => :destroy
   enum roles: [:agent, :builder, :designer]
+
+   scope :agents, -> { where(roles: :agent) }
+   scope :builders, -> { where(roles: :builder) }
+   scope :designers, -> { where(roles: :designer) }
+
+
   def full_name
     "#{first_name} #{last_name}"
   end

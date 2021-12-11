@@ -8,11 +8,6 @@
   <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Email" %>
   <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password"%>
   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Password confirmation"%>
-
-
-
-
-  <%= f.select :roles, options_for_select(Account.roles),{:class => 'btn btn-success dropdown-toggle btn-block'} %>
   <%= f.select :roles, options_for_select(Account.roles.map { |key, value| [key.humanize, key] }), {prompt: "Select Type of Account..."}, class: "form-control" %>
 
 

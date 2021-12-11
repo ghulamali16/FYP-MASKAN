@@ -1,7 +1,18 @@
-<div class="property-main-photo mt-5" style="background-image:url('<%= image_tag @account.cover_image.variant(resize: '500*500') %>
-  <div class="photo-overlay">
+<div class="property-main-photo" >
+
+  <%if @account.image.present?%>
+    <%= image_tag @account.photo%>
+  <%else%>
+    <%= image_tag "placeholder.jpg" %>
+  <%end%>
+   <div class="photo-overlay">
   </div>
 </div>
+
+<div style="line-height:20em">
+  <br>
+  <br>
+</div>>
 
 <div class="container">
   <div class="row">
@@ -54,7 +65,7 @@
     <div class="container" bis_skin_checked="1">
       <div class="row" bis_skin_checked="1">
         <div class="col-12">
-          <p class="h3 mb-3">Current listings by this agent</p>
+          <p class="h3 mb-3">Current listings by this User</p>
         </div>
         <%= render "properties/list", properties: @properties %>
       </div>

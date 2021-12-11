@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_account!, only: %i[new create destroy]
+  before_action :set_sidebar, except: %i[show]
   # GET /projects or /projects.json
   def index
     @projects = Project.all
@@ -8,6 +9,8 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @account = @project.account
+    @account_projects = Project.where(account_id: @account.id).where.not(id: @project.id)
   end
 
   # GET /projects/new
@@ -22,6 +25,7 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
+    @project.account_id = current_account.id
 
     respond_to do |format|
       if @project.save
@@ -62,8 +66,11 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def set_sidebar
+      @show_sidebar = true
+    end
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:title, :city, :budget, :status, :client)
+      params.require(:project).permit(:title, :city, :budget, :statuses, :client, :photo)
     end
 end

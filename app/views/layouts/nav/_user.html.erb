@@ -7,12 +7,21 @@
   Dashboard <span class="sr-only">(current)</span>
   <% end %>
 </li>
-<li class="nav-item">
-  <%= link_to properties_path ,class: "nav-link" do %>
-  <i data-feather="package"></i>
-  Properties
-  <% end %>
-</li>
+<%if current_account.roles == "agent" %>
+  <li class="nav-item">
+    <%= link_to properties_path ,class: "nav-link" do %>
+    <i data-feather="package"></i>
+    Properties
+    <% end %>
+  </li>
+  <%else%>
+  <li class="nav-item">
+    <%= link_to projects_path ,class: "nav-link" do %>
+    <i data-feather="package"></i>
+    Projects
+    <% end %>
+  </li>
+<%end%>
 
 <li class="nav-item">
  <%=link_to root_path, class: 'nav-link' do %>
