@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get  '/latest' => 'properties#latest', as: :latest
   get  '/builders' => 'admin#builders', as: :builders
   get  '/interior_designers' => 'admin#designers', as: :designers
+  get  '/search' => 'public#Search'
   root to: 'public#main'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

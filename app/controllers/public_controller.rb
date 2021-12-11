@@ -8,7 +8,17 @@ class PublicController < ApplicationController
         { success: 'Successfully signed in. Welcome to Maskan' }) && return
     end
 
-    @properties = Property.latest
+
     @posts = Post.latest
+    @properties = Property.all
+  end
+  def Search
+    if params.present?
+      @name = params["name"]
+      @search_properties = Property.where("name LIKE ?", "%#{@name}%")
+    else
+      @search_properties = Property.latest
+    end
   end
 end
+

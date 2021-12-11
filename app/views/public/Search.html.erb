@@ -1,0 +1,18 @@
+ <div class=" container col-lg-5">
+  <p class="font-weight-bold">Search from thousands of listing everyday!</p>
+
+    <!--Grid column-->
+    <div class="col-md-6 mb-4">
+     <span>
+       <%= form_with url: '/search', remote: true, method: :get do |f| %>
+          <%= f.text_field :name , placeholder:"keyword" ,class:"form-control mr-sm-2 m-2" %>
+          <%= f.number_field :room , placeholder:"keyword" ,class:"form-control mr-sm-2 m-2" %>
+
+         <%= f.submit "Search", class: "btn btn-unique btn-rounded btn-sm my-0 waves-effect waves-light mt-2" %>
+        <% end %>
+       <span>
+    </div>
+  </div>
+
+
+<%=render 'properties/list', properties: @search_properties%>
