@@ -1,0 +1,74 @@
+<div class='container mt-5'>
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Down payment:</strong>
+    <%= @payment_plan.down_payment %>
+  </p>
+
+  <p>
+    <strong>Total amount:</strong>
+    <%= @payment_plan.total_amount %>
+  </p>
+
+  <p>
+    <strong>Months:</strong>
+    <%= @payment_plan.months %>
+  </p>
+
+  <p>
+    <strong>Balloon payment:</strong>
+    <%= @payment_plan.balloon_payment %>
+  </p>
+
+  <p>
+    <strong>Balloon payment frequency:</strong>
+    <%= @payment_plan.balloon_payment_frequency %>
+  </p>
+
+  <p>
+    <strong>Property:</strong>
+    <%= @payment_plan.property_id %>
+  </p>
+  <table class = "table table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Months</th>
+        <th>Installment Amount</th>
+        <th>Balloon Payment</th>
+        <th>Installment Total</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%counter= 1%>
+      <% installment = (@payment_plan.total_amount-@payment_plan.down_payment)/@payment_plan.months%>
+      <% total = 0%>
+      <% @payment_plan.months.times do |payment_plan| %>
+        <tr>
+          <td> Month <%= counter %></td>
+          <td><%= installment %></td>
+          <td>
+              <%if counter%12==0 %>
+                <%=@payment_plan.balloon_payment %>
+                <%total+=@payment_plan.balloon_payment%>
+              <%else%>
+                nil
+              <%end%>
+          </td>
+          <td><%= total+=installment %></td>
+          <td><%= @payment_plan.total_amount- total %></td>
+        </tr>
+        <%counter+=1%>
+    </tbody>
+    <%end%>
+  </table>
+  <br>
+  <%if @property.account_id == current_account%>
+    <%= link_to 'Edit', edit_property_payment_plan_path(@property, @payment_plan) , class:"btn btn-sm btn-warning"%> |
+    <%= link_to 'Add Plan', new_property_payment_plan_path(@property) , class:"btn btn-sm btn-primary" %> |
+  <%else%>
+      <%= link_to 'Download Plan', new_property_payment_plan_path(@property) , class:"btn btn-sm btn-success" %> |
+  <%end%>
+  <%= link_to 'Back', property_payment_plans_path(@property), class:"btn btn-sm btn-secondary" %>
+</div>

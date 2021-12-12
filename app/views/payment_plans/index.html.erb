@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<h1 class="mt-5">Payment Plans</h1>
+<table class = "table table-striped mt-5">
+  <thead>
+    <tr>
+      <th>Down payment</th>
+      <th>Total amount</th>
+      <th>Months</th>
+      <th>Balloon payment</th>
+      <th>Balloon payment frequency</th>
+      <th>Property</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @payment_plans.each do |payment_plan| %>
+      <tr>
+        <td><%= payment_plan.down_payment %></td>
+        <td><%= payment_plan.total_amount %></td>
+        <td><%= payment_plan.months %></td>
+        <td><%= payment_plan.balloon_payment %></td>
+        <td><%= payment_plan.balloon_payment_frequency %></td>
+        <td><%= payment_plan.property_id %></td>
+        <td><%= link_to 'Show Plan', property_payment_plan_path(@property, payment_plan), class:"btn btn-sm btn-info" %></td>
+        <%if @property.account_id == current_account%>
+          <td><%= link_to 'Edit Plan', edit_property_payment_plan_path(@property, payment_plan), class:"btn btn-sm btn-warning" %></td>
+          <td><%= link_to 'Destroy Plan', [@property, payment_plan], method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-sm btn-danger"%></td>
+        <%else%>
+        <td>Restricted!<td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%if @property.account_id == current_account%>
+  <%= link_to 'New Payment Plan', new_property_payment_plan_path(@property) , class:"btn btn-info" %>
+<%else%>
+  <i class="fas fa-home fa-2x ml-5"></i></a>
+<%end%>
+<%= link_to 'Show Property', [@property] , class:"btn btn-primary ml-5" %>

@@ -10,15 +10,9 @@ class PublicController < ApplicationController
 
 
     @posts = Post.latest
-    @properties = Property.all
+    @q = Property.ransack(params[:q])
+    @properties = @q.result
   end
-  def Search
-    if params.present?
-      @name = params["name"]
-      @search_properties = Property.where("name LIKE ?", "%#{@name}%")
-    else
-      @search_properties = Property.latest
-    end
-  end
+
 end
 

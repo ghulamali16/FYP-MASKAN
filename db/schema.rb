@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_11_195141) do
+ActiveRecord::Schema.define(version: 2021_12_12_172936) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -64,6 +64,18 @@ ActiveRecord::Schema.define(version: 2021_12_11_195141) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "payment_plans", force: :cascade do |t|
+    t.integer "down_payment"
+    t.integer "total_amount"
+    t.integer "months"
+    t.integer "balloon_payment"
+    t.integer "balloon_payment_frequency"
+    t.integer "property_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["property_id"], name: "index_payment_plans_on_property_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "url"
@@ -107,5 +119,6 @@ ActiveRecord::Schema.define(version: 2021_12_11_195141) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "payment_plans", "properties"
   add_foreign_key "projects", "accounts"
 end
