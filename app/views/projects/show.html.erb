@@ -1,25 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<div class="jumbotron">
-<div class="property-main-photo" >
- <%if @project.photo.present?%>
-    <%= image_tag @project.photo%>
-  <%else%>
-    <%= image_tag("/assets/placeholder.jpg", alt: "like", class: "like_image_for_index") %>
-  <%end%>
-   <div class="photo-overlay">
+<div class="jumbotron container">
+  <div class="property-main-photo " >
+    <%if @project.photo.present?%>
+      <%= image_tag @project.boxy%>
+    <%else%>
+      <%= image_tag("/assets/placeholder.jpg", alt: "like", class: "like_image_for_index") %>
+    <%end%>
   </div>
-</div>
-<div style="line-height:1em">
-</div>
-  <h1 class="display-4"><b>Project Title:  </b><%=@project.title%></h1>
-  <b>Project Status:   </b><span class="badge badge-primary">  <%=@project.statuses%></span>
-  <p class="lead"><b>Project City:  </b><%=@project.city%></p>
-  <hr class="my-4">
-  <p><b>Project Budget:  </b><%=@project.budget%></p>
-  <p><b>Project Client:  </b><%=@project.client%></p>
-   <p><b>Project Details:  </b><%=@project.details%></p>
-  <p class="btn btn-sm btn-warning"> <%= link_to 'Edit', edit_project_path(@project), class:"btn btn-sm primary" %> </p>
-  <p class="btn btn-sm btn-info">
-    <%= link_to 'Back', projects_path, class:"btn btn-sm info" %></p>
+  <div class="photo-overlay">
+
+  </div>
+  <div style="line-height:20em">
+    <br>
+  </div>
+  <div >
+      <h1 class="display-4"><b>Project Title:  </b><%=@project.title%></h1>
+      <b>Project Status:   </b><span class="badge badge-primary">  <%=@project.statuses%></span>
+      <p class="lead"><b>Project City:  </b><%=@project.city%></p>
+      <hr class="my-4">
+      <p><b>Project Budget:  </b><%=@project.budget%></p>
+      <p><b>Project Client:  </b><%=@project.client%></p>
+      <p><b>Project Details:  </b><%=@project.details%></p>
+      <p class="btn btn-sm btn-warning"> <%= link_to 'Edit', edit_project_path(@project), class:"btn btn-sm primary" %> </p>
+      <p class="btn btn-sm btn-info">
+        <%= link_to 'Back', projects_path, class:"btn btn-sm info" %></p>
+  </div>
 </div>

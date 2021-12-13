@@ -1,7 +1,7 @@
 <div class="property-main-photo" >
 
-  <%if @account.image.present?%>
-    <%= image_tag @account.photo%>
+  <%if @account.cover_image.present?%>
+    <%= image_tag @account.cover_image%>
   <%else%>
     <%= image_tag "placeholder.jpg" %>
   <%end%>

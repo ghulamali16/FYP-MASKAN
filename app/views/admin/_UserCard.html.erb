@@ -5,16 +5,15 @@
             <div class="col-12 mt-3">
                 <div class="card">
                     <div class="card-horizontal", style="display: flex; flex: 1 1 auto;">
-                        <div class="img-square-wrapper" style='width:20%'>
-                            <%= image_tag account.image? ? account.image : "profile_placeholder.png" , style:'width:70%; height:100%' %>
+                        <div class="img-square-wrapper" style='width:40%'>
+                            <%= image_tag account.image ? account.image : "profile_placeholder.png" , style:'width:70%; height:100%' %>
                         </div>
                         <div class="card-body">
 
                             <h4 class="card-title"><%=account.full_name%> <button type="button" class="btn btn-primary">
                                                     <%=account.roles%> </button>
                             </h4>
-                            <p class="card-text" style='font-size:1rem'>Details:  <%=account.details%></p>
-
+                            <p class="card-text" style='font-size:1rem'><b>Details:  </b><%=account.details%></p>
                              <%= link_to "View Profile", profile_path(account.id), class:'btn btn-sm btn-success' %>
                         </div>
                     </div>
