@@ -78,7 +78,7 @@
       <iframe class="ml-lg-4 mt-3" width="320" height="240" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB1as2uf4ut2rf6f4-Xz57i2J80fJsOTrs&q=<%= @property.address.to_param %>" allowfullscreen></iframe>
     </div>
   </div>
-  <%if @property.account_id == current_account.id%>
+  <%if current_account && @property.account_id == current_account.id%>
       <section>
           <div class="col-6 text-right">
             <b><%= link_to "New Payment Plan", new_property_payment_plan_path(@property), class:'btn btn-sm btn-success' %></b>
