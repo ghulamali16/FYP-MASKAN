@@ -27,6 +27,9 @@ gem 'mini_magick'
 gem 'image_processing'
 gem 'simple_form'
 gem 'ransack'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

@@ -9,6 +9,12 @@ class PaymentPlansController < ApplicationController
 
   # GET /payment_plans/1 or /payment_plans/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "plan"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /payment_plans/new
