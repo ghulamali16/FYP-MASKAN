@@ -22,7 +22,7 @@
         <td><%= payment_plan.balloon_payment_frequency %></td>
         <td><%= payment_plan.property_id %></td>
         <td><%= link_to 'Show Plan', property_payment_plan_path(@property, payment_plan), class:"btn btn-sm btn-info" %></td>
-        <%if @property.account_id == current_account%>
+        <%if  current_account.present? && @property.account_id == current_account.id &&%>
           <td><%= link_to 'Edit Plan', edit_property_payment_plan_path(@property, payment_plan), class:"btn btn-sm btn-warning" %></td>
           <td><%= link_to 'Destroy Plan', [@property, payment_plan], method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-sm btn-danger"%></td>
         <%else%>

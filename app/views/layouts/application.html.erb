@@ -21,27 +21,34 @@
 
 </head>
 
-<body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "show-sidebar" if @show_sidebar.present? %>">
+<body id="<%= controller.controller_name %>" class="<%= controller.action_name %> <%= "show-sidebar" if @show_sidebar.present? %>" >
   <% if @show_sidebar.nil? %>
-  <header>
+    <header>
+      <%= render "layouts/nav/public" %>
+    </header>
+      <%= yield %>
+  <% elsif current_account.present? && current_account.roles=='user' %>
     <%= render "layouts/nav/public" %>
-    <aside>Ads</aside>
-  </header>
-  <%= yield %>
-  <% else %>
-  <%= render "layouts/nav/dashboard" %>
-  <div class="container-fluid" bis_skin_checked="1">
-    <div class="row" bis_skin_checked="1">
-      <%= render "layouts/nav/sidebar" %>
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">
-        <%= yield %>
-      </main>
+    <div class="container-fluid" bis_skin_checked="1">
+      <div class="row" bis_skin_checked="1">
+        <%= render "layouts/nav/sidebar" %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">
+          <%= yield %>
+        </main>
+      </div>
     </div>
-  </div>
+  <%else%>
+    <%= render "layouts/nav/dashboard" %>
+    <div class="container-fluid" bis_skin_checked="1">
+      <div class="row" bis_skin_checked="1">
+        <%= render "layouts/nav/sidebar" %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4 mt-3">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   <% end %>
 
-  <br style="line-height:20%">
-  <%= render "layouts/footer" %>
 
   <div id="notifications"><%= flash_notifications %></div>
 
@@ -50,5 +57,6 @@
     feather.replace()
   </script>
 </body>
+   <%= render "layouts/footer" %>
 
 </html>

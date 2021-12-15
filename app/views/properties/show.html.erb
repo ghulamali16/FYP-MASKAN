@@ -1,7 +1,7 @@
-<div class="property-main-photo" >
+<div class="property-main-photo ml-5" >
 
   <%if @property.photo.present?%>
-    <%= image_tag @property.photo%>
+    <%= image_tag @property.boxy%>
   <%else%>
     <%= image_tag("/assets/placeholder.jpg", alt: "like", class: "like_image_for_index") %>
   <%end%>

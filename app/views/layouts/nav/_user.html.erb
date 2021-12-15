@@ -14,7 +14,20 @@
     Properties
     <% end %>
   </li>
-  <%else%>
+<%elsif current_account.roles == "user"%>
+  <li class="nav-item">
+    <%= link_to projects_path ,class: "nav-link" do %>
+    <i data-feather="package"></i>
+    My consultancy Plans
+    <% end %>
+  </li>
+    <li class="nav-item">
+    <%= link_to root_path ,class: "nav-link" do %>
+    <i data-feather="package"></i>
+      Go to Home
+    <% end %>
+  </li>
+<%else%>
   <li class="nav-item">
     <%= link_to projects_path ,class: "nav-link" do %>
     <i data-feather="package"></i>
@@ -22,10 +35,3 @@
     <% end %>
   </li>
 <%end%>
-
-<li class="nav-item">
- <%=link_to root_path, class: 'nav-link' do %>
-    <i data-feather="back"></i>
-    Go to Site
-  <% end %>
-</li>

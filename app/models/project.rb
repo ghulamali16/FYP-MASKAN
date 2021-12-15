@@ -3,6 +3,9 @@ class Project < ApplicationRecord
   has_one_attached :photo
   belongs_to :account
 
+  scope :completed, -> { where(statuses: 'completed') }
+  scope :incomplete, -> { where(statuses: 'incomplete') }
+  scope :under_progress, -> { where(statuses: 'under_progress') }
 
   def boxy
     if self.photo.present?
