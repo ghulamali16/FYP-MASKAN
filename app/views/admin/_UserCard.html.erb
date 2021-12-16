@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-12 mt-3">
                 <div class="card">
-                    <div class="card-horizontal", style="display: flex; flex: 1 1 auto;">
+                    <div class="card-horizontal", style="display: flex;">
                         <div class="img-square-wrapper" style='width:40%'>
-                            <%= image_tag account.image ? account.image : "profile_placeholder.png" , style:'width:70%; height:100%' %>
+                            <%= image_tag account.image_box, style:'width:70%; height:100%' %>
                         </div>
                         <div class="card-body">
 
@@ -18,7 +18,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                    <p class="text-muted" style='font-size:1rem'> Registered for <%= time_ago_in_words account.created_at %></p>
+                        <p class="text-muted" style='font-size:1rem'> Registered for <%= time_ago_in_words account.created_at %></p>
                     </div>
                 </div>
             </div>

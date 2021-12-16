@@ -1,9 +1,14 @@
 # frozen_string_literal: true
-
+require 'faker'
 class DashboardController < ApplicationController
   before_action :set_sidebar
 
-  def index; end
+  def index
+    @company = Faker::Company.bs
+    @quote =  Faker::Quotes::Shakespeare.as_you_like_it_quote
+    @quote_author = Faker::Book.author
+    @book =   Faker::Book.title
+  end
 
   def profile
     @account = Account.find(params[:id])
@@ -18,6 +23,7 @@ class DashboardController < ApplicationController
     @projects_under_progress = Project.where(account_id: @account.id).under_progress.count
     @projects_total = @projects_under_progress + @projects_incomplete + @projects_completed
   end
+
 
   private
 

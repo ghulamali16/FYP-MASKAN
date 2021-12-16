@@ -20,4 +20,8 @@ class Account < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+  def image_box
+     image.attached? ? image.variant(resize: "300x300") : "profile_placeholder.png"
+  end
+
 end

@@ -13,7 +13,7 @@ class Property < ApplicationRecord
 
   def boxy
     if self.photo.present?
-      self.photo.variant(resize: "2180x1080")
+      self.photo.variant(resize: "1820X1520")
     else
       self.photo
     end
