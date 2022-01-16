@@ -23,7 +23,14 @@
         <%= project.budget %>
       </span>
 
-      <p class="mt-2"><%= project.statuses %></p>
+      <p class="mt-2">
+      <% if project.statuses == 'under_progress'%>
+       <span> Under Progress </span>
+      <%else%>
+        <%= project.statuses.capitalize %>
+      <%end%>
+      </p>
+
     </div>
   </div>
 </div>

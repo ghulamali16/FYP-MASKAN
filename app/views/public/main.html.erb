@@ -18,9 +18,11 @@
     <div class="col-md-6 mb-4">
      <span>
         <%=label_tag 'Search Keyword'%> <i class="fas fa-search"></i>
-        <%= text_field_tag :"q[name_cont]"%>
-        <%= submit_tag "Search", data: { disable_with: "Searching..." }, class: "btn btn-unique btn-rounded btn-sm btn-success mt-2"%>
-        <% end %>
+        <span>
+          <%= text_field_tag :"q[name_cont]"%>
+          <%= submit_tag "Search", data: { disable_with: "Searching..." }, class: "btn btn-unique btn-rounded btn-sm btn-success mt-2"%>
+        </span >
+         <% end %>
        <span>
     </div>
   </div>
@@ -31,7 +33,11 @@
       <div class="row" bis_skin_checked="1">
         <%= render "properties/list", properties: @properties %>
       </div>
+        <span class='m-3'>
+        <%= paginate @properties%>
+        </span>
     </div>
+
   </section>
 
   <section id="latest-posts" class="mb-5">

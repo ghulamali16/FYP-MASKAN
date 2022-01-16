@@ -32,6 +32,7 @@ gem 'wkhtmltopdf-binary'
 gem "chartkick"
 gem 'groupdate'
 gem 'faker'
+gem 'kaminari'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

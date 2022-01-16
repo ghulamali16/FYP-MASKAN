@@ -10,15 +10,15 @@
                         </div>
                         <div class="card-body">
 
-                            <h4 class="card-title"><%=account.full_name%> <button type="button" class="btn btn-primary">
-                                                    <%=account.roles%> </button>
+                            <h4 class="card-title"><%=account.full_name%>
                             </h4>
                             <p class="card-text" style='font-size:1rem'><b>Details:  </b><%=account.details%></p>
+                            <p class="card-text" style='font-size:1rem'><b>Role:  </b><%=account.roles%></p>
                              <%= link_to "View Profile", profile_path(account.id), class:'btn btn-sm btn-success' %>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <p class="text-muted" style='font-size:1rem'> Registered for <%= time_ago_in_words account.created_at %></p>
+                        <p class="text-muted" style='font-size:1rem'> Joined us for <%= time_ago_in_words account.created_at %></p>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+<h1 class='mt-3'>Projects</h1>
 <% if @projects.present? %>
   <table class="table table-striped">
     <thead>
@@ -25,12 +25,15 @@
             <td><%= project.client %></td>
             <td><%= link_to 'Show', project , class:"btn btn-sm btn-primary" %></td>
             <td><%= link_to 'Edit', edit_project_path(project), class:"btn btn-sm btn-warning" %></td>
-            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-info" %></td>
+            <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm btn-danger" %></td>
           </tr>
         <% end %>
       </tbody>
   </table>
 <%else%>
+    <div style='line-height:5rem;'>
+      <br>
+    </div>
     <h2>No projects found!</h2>
 
 <%end%>

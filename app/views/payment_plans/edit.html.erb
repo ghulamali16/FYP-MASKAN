@@ -1,6 +1,6 @@
-<h1>Editing Payment Plan</h1>
+<h1 class='mt-5'>Editing Payment Plan</h1>
 
 <%= render 'form', payment_plan: @payment_plan %>
 
-<%= link_to 'Show', [@property, @payment_plan] %> |
-<%= link_to 'Back', property_payment_plan_path(@property) %>
+<%= link_to 'Show', [@property, @payment_plan], class:"btn btn-sm btn-primary"%> |
+<%= link_to 'Back', property_payment_plan_path(@property) , class:"btn btn-sm btn-secondary"%>

@@ -9,7 +9,7 @@ class PublicController < ApplicationController
    else
       @posts = Post.latest
       @q = Property.ransack(params[:q])
-      @properties = @q.result
+      @properties = @q.result.page(params[:page])
    end
   end
 

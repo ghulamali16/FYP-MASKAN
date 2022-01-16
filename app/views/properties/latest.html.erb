@@ -1,6 +1,6 @@
   <section id="latest-properties" class="mb-5 p-3">
     <div class="container" bis_skin_checked="1">
-      <h3 class="mb-3">Latest Properties</h3>
+      <h3 class="mb-3">Get a glance of all the Recent Properties</h3>
       <div class="row" bis_skin_checked="1">
         <%= render "properties/list", properties: @properties %>
       </div>
@@ -8,4 +8,7 @@
     <div style="line-height:20em">
       <br>
     </div>
+    <span class='m-3'>
+        <%= paginate @properties%>
+     </span>
   </section>

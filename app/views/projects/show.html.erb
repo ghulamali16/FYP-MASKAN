@@ -24,12 +24,12 @@
       <p><b>Project Details:  </b><%=@project.details%></p>
       <%if current_account.present? && @project.account_id == current_account.id %>
         <p class="btn btn-sm btn-warning"> <%= link_to 'Edit', edit_project_path(@project), class:"btn btn-sm primary" %> </p>
-          <p class="btn btn-sm btn-info">
-            <%= link_to 'Back', profile_path(@project.account_id), class:"btn btn-sm info" %>
+          <p class="btn btn-sm btn-secondary">
+            <%= link_to 'Back', profile_path(@project.account_id), class:"btn btn-sm secondary" %>
          </p>
       <%else%>
-          <p class="btn btn-sm btn-info">
-            <%= link_to 'Back', profile_path(@project.account_id), class:"btn btn-sm info" %>
+          <p class="btn btn-sm btn-secondary">
+            <%= link_to 'Back', profile_path(@project.account_id), class:"btn btn-sm secondary" %>
          </p>
       <%end%>
 

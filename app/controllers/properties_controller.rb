@@ -93,7 +93,7 @@ class PropertiesController < ApplicationController
   end
 
   def latest
-    @properties = Property.latest
+    @properties = Property.latest.page(params[:page])
   end
 
   private
