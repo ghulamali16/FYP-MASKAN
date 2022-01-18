@@ -28,6 +28,9 @@ $ localhost:3000/
 ## Future features
 - Improve styling for some sections of the app
 - Add more features like consultancy and Incremental Payments
+- A chatbot that will guide its users through any problem that they are facing using Maskan.
+- Multiple payment options will be provided to the buyer.
+- Better security will also be provided so that the credentials of the users could be protected more effectively.
 
 ## Built with
 - Ruby on Rails
